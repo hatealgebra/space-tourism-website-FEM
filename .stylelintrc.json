@@ -1,0 +1,17 @@
+{
+    "plugins": ["stylelint-prettier"],
+    "rules": {
+        "prettier/prettier": true
+    },
+    "ignoreFiles": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ejs",
+        "**/*.json",
+        "**/*.lock",
+        "**/*.woff",
+        "**/*.jpg",
+        "**/*.png",
+        "**/*.svg"
+    ]
+}

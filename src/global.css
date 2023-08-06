@@ -1,0 +1,123 @@
+@import './assets/styles/style.css';
+
+* {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    color: var(--color-white);
+    font-weight: 400;
+
+    @media (--min-desktop) {
+        * {
+            text-align: left;
+        }
+    }
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: auto;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Bellefair, serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+span,
+nav,
+a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 8rem;
+    line-height: 1.25;
+
+    @media (--min-tablet) {
+        font-size: 15rem;
+        line-height: 1;
+    }
+}
+
+h2 {
+    font-size: 5.6rem;
+
+    @media (--min-tablet) {
+        font-size: 8rem;
+    }
+
+    @media (--min-desktop) {
+        font-size: 10rem;
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+
+    @media (--min-tablet) {
+        font-size: 4rem;
+    }
+
+    @media (--min-desktop) {
+        font-size: 5.6rem;
+    }
+}
+
+h4 {
+    font-size: 1.6rem;
+    opacity: 0.5;
+
+    @media (--min-tablet) {
+        font-size: 2.4rem;
+    }
+
+    @media (--min-desktop) {
+        font-size: 4rem;
+    }
+}
+
+h5 {
+    font-size: 2.8rem;
+    letter-spacing: 4.75;
+}
+
+p {
+    font-size: 1.5rem;
+    font-family: 'Barlow';
+    color: var(--color-levant);
+    line-height: 166.67%;
+
+    @media (--min-tablet) {
+        font-size: 1.6rem;
+    }
+
+    @media (--min-desktop) {
+        font-size: 1.8rem;
+        line-height: 1.77;
+    }
+}
+
+nav {
+    font-size: 1.6rem;
+    letter-spacing: 2.7;
+}

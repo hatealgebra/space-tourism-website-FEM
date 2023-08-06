@@ -1,0 +1,52 @@
+@import '../assets/styles/mediaQueries.css';
+
+.root {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(11, 13, 23, 0.3);
+}
+
+.content {
+    padding: 0 5%;
+    flex: 1;
+
+    @media (--min-tablet) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (--min-desktop) {
+        padding: 0 10%;
+        position: relative;
+    }
+}
+
+.subHeading {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2.7px;
+    text-align: center;
+    margin-bottom: 3.2rem;
+    height: 100% - 3.2rem;
+
+    & span:nth-of-type(1) {
+        opacity: 0.6;
+    }
+
+    & span:nth-of-type(2) {
+        margin-left: 1.1rem;
+    }
+
+    @media (--min-tablet) {
+        text-align: left;
+    }
+
+    @media (--min-desktop) {
+        letter-spacing: 4.725px;
+    }
+}
