@@ -121,3 +121,26 @@ nav {
     font-size: 1.6rem;
     letter-spacing: 2.7;
 }
+
+footer {
+    font-family: Barlow;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    display: block;
+    font-size: 1.4rem;
+
+    @media (--min-tablet) {
+        font-size: 1.6rem;
+    }
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+    margin-left: 0.3rem;
+}
