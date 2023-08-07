@@ -23,7 +23,7 @@ const App = () => {
         },
         {
             path: '/destinations',
-            element: <DestinationPage />,
+            element: <DestinationPage destinationsData={destinationsData} />,
         },
         {
             path: '/crew',

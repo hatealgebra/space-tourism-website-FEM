@@ -4,20 +4,20 @@ import * as sharedStyles from '@styles/sharedStyles.module.css';
 import * as styles from './destinationPage.module.css';
 import Carousel from '@components/destinationCarousel/DestinationCarousel';
 
-import dataJSON from '@static/data.json';
 import { useEffect, useState } from 'react';
 
-type Props = {};
+interface DestinationPageProps {
+    destinationsData: Array<IDestinationData>;
+}
 
-const DestinationPage = () => {
-    const { destinations } = dataJSON;
+const DestinationPage = ({ destinationsData }: DestinationPageProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [destData, setDestData] = useState(destinations[0]);
+    const [destData, setDestData] = useState(destinationsData[0]);
 
     const { name, description, distance, travel } = destData;
 
     useEffect(() => {
-        setDestData(destinations[currentIndex]);
+        setDestData(destinationsData[currentIndex]);
     }, [currentIndex]);
 
     return (
