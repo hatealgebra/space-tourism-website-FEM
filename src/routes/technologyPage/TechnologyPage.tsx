@@ -20,7 +20,7 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
         carouselGalleryRef,
         onScroll,
         onClickMenuButton,
-    } = useCarousel({ data: technologyData });
+    } = useCarousel({ data: technologyData, hasVerticalScroll: true });
 
     return (
         <PageTemplate

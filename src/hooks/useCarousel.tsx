@@ -14,7 +14,7 @@ const useCarousel = ({ data, hasVerticalScroll }: UseCarouselProps) => {
     const windowWidth = useWindowSize();
 
     const enableVerticalScroll =
-        windowWidth > BREAKPOINTS.desktop && !hasVerticalScroll;
+        windowWidth > BREAKPOINTS.desktop && hasVerticalScroll;
 
     const clientDimension = enableVerticalScroll
         ? 'clientWidth'

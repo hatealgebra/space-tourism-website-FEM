@@ -30,6 +30,7 @@ const DestinationPage = () => {
                 <Carousel
                     headingNumber="01"
                     headingText="Pick Your Destination"
+                    currentIndex={currentIndex}
                     setCurrentIndex={setCurrentIndex}
                 />
                 <div className={styles.textContent}>
