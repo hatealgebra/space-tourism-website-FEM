@@ -1,6 +1,8 @@
 import { Dispatch, ForwardedRef, SetStateAction, forwardRef } from 'react';
-import * as styles from './mobileMenu.module.css';
 import clsx from 'clsx';
+
+import * as styles from './mobileMenu.module.css';
+import * as sharedStyles from '@styles/sharedStyles.module.css';
 import { ROUTES } from '@constants/constants';
 import { Link } from 'react-router-dom';
 
@@ -64,6 +66,17 @@ const MobileMenu = forwardRef(function (
                     ))}
                 </ul>
             </nav>
+            <div className={sharedStyles.footerMobile}>
+                Challenge by
+                <a
+                    href="https://www.frontendmentor.io?ref=challenge"
+                    target="_blank"
+                >
+                    Frontend Mentor
+                </a>
+                .<br /> Coded by{' '}
+                <a href="https://github.com/hatealgebra">Paul</a>.
+            </div>
         </div>
     );
 });

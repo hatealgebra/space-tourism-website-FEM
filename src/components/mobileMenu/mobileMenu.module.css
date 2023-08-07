@@ -2,6 +2,9 @@
     position: fixed;
     width: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     top: 0;
     right: 0;
     bottom: 0;

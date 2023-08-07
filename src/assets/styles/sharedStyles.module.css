@@ -48,6 +48,7 @@
 
 .carouselGallery {
     display: flex;
+    flex-direction: column;
     margin: 2rem auto 2.6rem;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
@@ -62,5 +63,24 @@
     & img {
         width: inherit;
         scroll-snap-align: center;
+    }
+}
+
+.footerMobile {
+    font-family: 'Barlow Condensed';
+    width: 100%;
+    height: fit-content;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-left: 3.2rem;
+    display: block;
+    font-size: 1.4rem;
+    text-align: left;
+
+    & a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 0.3rem;
     }
 }
