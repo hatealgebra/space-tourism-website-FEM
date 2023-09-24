@@ -25,7 +25,7 @@ enum EDESTINATIONS {
 interface CarouselProps {
     headingNumber: string;
     headingText: string;
-    curentIndex: number;
+    currentIndex: number;
     setCurrentIndex: Dispatch<SetStateAction<number>>;
 }
 
@@ -49,12 +49,12 @@ const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
 
         setScrollThrottle(true);
 
-        const width = e.target.clientWidth;
+        const width = e.currentTarget.clientWidth;
         const numberOfDestinations = menuRef.current.children.length;
 
         for (let i = 0; i < numberOfDestinations - 1; i++) {
             const scrollDimension = width * i;
-            if (e.target.scrollLeft >= scrollDimension) {
+            if (e.currentTarget.scrollLeft >= scrollDimension) {
                 setCurrentIndex(i);
             }
         }

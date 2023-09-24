@@ -16,7 +16,6 @@ const TopPanel = forwardRef(function (
     ref: Ref<HTMLButtonElement>
 ) {
     const deviceWidth = useWindowSize();
-    console.log(Object.values(ROUTES));
     return (
         <header className={styles.root}>
             <img className={styles.logo} src={logo} alt="Space logo" />
