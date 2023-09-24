@@ -25,7 +25,7 @@ const TopPanel = forwardRef(function (
             )}
             {deviceWidth >= BREAKPOINTS.tablet ? (
                 <nav>
-                    <ul className={styles.panelNav}>
+                    <ul >
                         {ROUTES.map((route, index) => {
                             console.log(route);
                             return (
