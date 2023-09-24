@@ -1,9 +1,9 @@
-export const ROUTES = [
-    { name: 'Home', path: '/' },
-    { name: 'Destinations', path: '/destinations' },
-    { name: 'Crew', path: '/crew' },
-    { name: 'Technology', path: '/technology' },
-];
+export const ROUTES = {
+    home:  { name: 'Home', path: '/' },
+    destinations:  { name: 'Destinations', path: '/destinations' },
+    crew: { name: 'Crew', path: '/crew' },
+    technology: { name: 'Technology', path: '/technology' },
+};
 
 export const BREAKPOINTS = {
     mobile: 0,

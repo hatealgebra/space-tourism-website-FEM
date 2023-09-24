@@ -16,7 +16,7 @@ const TopPanel = forwardRef(function (
     ref: Ref<HTMLButtonElement>
 ) {
     const deviceWidth = useWindowSize();
-
+    console.log(Object.values(ROUTES));
     return (
         <header className={styles.root}>
             <img className={styles.logo} src={logo} alt="Space logo" />
@@ -26,10 +26,11 @@ const TopPanel = forwardRef(function (
             {deviceWidth >= BREAKPOINTS.tablet ? (
                 <nav>
                     <ul >
-                        {ROUTES.map((route, index) => {
-                            console.log(route);
+                        {Object.values(ROUTES).map((route, index) => {
                             return (
-                                <li>
+                                <li
+                                key={route.name}
+                                >
                                     <NavLink
                                         className={({ isActive }) =>
                                             isActive && styles.activeLink

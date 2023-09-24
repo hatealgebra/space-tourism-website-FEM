@@ -1,6 +1,8 @@
+import { ROUTES } from '@constants/constants';
 import PageTemplate from '../templates/page.template';
 import * as styles from './root.module.css';
 import * as sharedStyles from '@styles/sharedStyles.module.css';
+import { NavLink } from 'react-router-dom';
 
 type Props = {};
 
@@ -22,7 +24,7 @@ const Root = (props: Props) => {
                 </div>
                 <div className={styles.lpBtn}>
                     <div />
-                    <a href="">EXPLORE</a>
+                    <NavLink to={ROUTES.destinations.path}>EXPLORE</NavLink>
                 </div>
             </div>
         </PageTemplate>

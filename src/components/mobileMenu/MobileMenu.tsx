@@ -53,7 +53,7 @@ const MobileMenu = forwardRef(function (
             </button>
             <nav>
                 <ul>
-                    {ROUTES.map((arr, i) => (
+                    {Object.values(ROUTES).map((arr, i) => (
                         <li key={`${arr.name}-link`}>
                             <Link
                                 onClick={() => setIsMobileMenuActive(false)}
