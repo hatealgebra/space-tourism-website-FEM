@@ -74,8 +74,9 @@ const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
 
         if (galleryRef === null || e.target === null) return;
 
-        const scrollBy = galleryRef.current.clientWidth * index;
-        galleryRef.current.scrollLeft = scrollBy;
+        const chosenElement = galleryRef.current.children[index];
+        chosenElement.scrollIntoView({ behavior: 'smooth' });
+        
         setCurrentIndex(index);
         setUnderlinePosition({
             width: e.target.clientWidth,

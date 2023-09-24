@@ -10,6 +10,7 @@ interface UseCarouselProps {
 const useCarousel = ({ data, hasVerticalScroll }: UseCarouselProps) => {
     const [position, setPosition] = useState(0);
     const [currentData, setCurrentData] = useState(data[position]);
+
     const carouselGalleryRef = useRef(null);
     const windowWidth = useWindowSize();
 
@@ -34,8 +35,8 @@ const useCarousel = ({ data, hasVerticalScroll }: UseCarouselProps) => {
     };
 
     const onClickMenuButton = (carouselGalleryRef, index) => {
-        carouselGalleryRef.current[scrollDirection] =
-            carouselGalleryRef.current[clientDimension] * index + 20 * index;
+        const chosenElement = carouselGalleryRef.current.children[index];
+        chosenElement.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
