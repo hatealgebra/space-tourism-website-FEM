@@ -135,7 +135,7 @@
     max-width: 458px;
     margin: auto;
     text-align: center;
-
+    position: relative;
     & h3 {
         margin-top: 0.8rem;
         margin-bottom: 1.6rem;

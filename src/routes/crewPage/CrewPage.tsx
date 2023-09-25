@@ -24,20 +24,12 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
         position,
         currentData,
         onClickMenuButton,
+        onScroll
     } = useCarousel({
         carouselGalleryRef,
         data: crewData,
     })
 
-    useEffect(() => {
-
-        document.addEventListener('', () => {
-            console.log('DOM fully loaded and parsed');
-            if(!carouselGalleryRef.current) return;
-            const chosenElement = carouselGalleryRef.current.children[position];
-            chosenElement.scrollIntoView({ behavior: 'smooth' });
-        })
-    },[])
 
     return (
         <PageTemplate
@@ -48,6 +40,7 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
             <div className={styles.contentContainer}>
                 <div className={styles.crewCarousel}>
                     <div
+                    onScroll={(e) => onScroll(e)}
                         ref={carouselGalleryRef}
                         className={clsx(
                             sharedStyles.carouselGallery,
@@ -79,9 +72,9 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
                     ))}
                 </menu>
                 <section className={styles.bio}>
-                    <h4>{currentData.role}</h4>
-                    <h3>{currentData.name}</h3>
-                    <p>{currentData.bio}</p>
+                        <h4>{currentData.role}</h4>
+                        <h3>{currentData.name}</h3>
+                        <p>{currentData.bio}</p>
                 </section>
             </div>
         </PageTemplate>
