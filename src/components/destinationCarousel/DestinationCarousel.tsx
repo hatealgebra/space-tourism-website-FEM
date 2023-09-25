@@ -30,46 +30,16 @@ interface CarouselProps {
 }
 
 const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
-    const [clickedButton, setClickedButton] = useState(false);
+
+
     const destinationGalleryRef = useRef(null);
-    const [scrollThrottle, setScrollThrottle] = useState(false);
     const menuRef = useRef(null);
-
-    const [underlinePosition, setUnderlinePosition] = useState<{
-        width: number;
-        offsetLeft: number;
-    }>({
-        width: 0,
-        offsetLeft: 0,
-    });
-
-    const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        if (clickedButton) return;
-        if (scrollThrottle) return;
-
-        setScrollThrottle(true);
-
-        const width = e.currentTarget.clientWidth;
-        const numberOfDestinations = menuRef.current.children.length;
-
-        for (let i = 0; i < numberOfDestinations - 1; i++) {
-            const scrollDimension = width * i;
-            if (e.currentTarget.scrollLeft >= scrollDimension) {
-                setCurrentIndex(i);
-            }
-        }
-
-        setTimeout(() => {
-            setScrollThrottle(false);
-        }, 150);
-    };
 
     const setClickPosition = (
         e: MouseEvent,
         galleryRef: Ref<HTMLDivElement>,
         index: number
     ) => {
-        setClickedButton(true);
         e.preventDefault();
 
         if (galleryRef === null || e.target === null) return;
@@ -78,28 +48,13 @@ const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
         chosenElement.scrollIntoView({ behavior: 'smooth' });
         
         setCurrentIndex(index);
-        setUnderlinePosition({
-            width: e.target.clientWidth,
-            offsetLeft: e.target.offsetLeft,
-        });
 
-        setTimeout(() => {
-            setClickedButton(false);
-        }, 500);
     };
 
-    useEffect(() => {
-        if (menuRef.current === null) return;
-        const width = menuRef.current.children[currentIndex]?.clientWidth;
-        const offsetLeft = menuRef.current.children[currentIndex]?.offsetLeft;
-
-        setUnderlinePosition({ width, offsetLeft });
-    }, [currentIndex]);
 
     return (
         <>
             <div
-                onScroll={(e) => onScroll(e)}
                 ref={destinationGalleryRef}
                 className={clsx(
                     sharedStyles.carouselGallery,
@@ -114,6 +69,7 @@ const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
             <div ref={menuRef} className={styles.chooseMenu}>
                 {Object.keys(EDESTINATIONS).map((destinationKey, i) => (
                     <button
+                    className={clsx(currentIndex === i && styles.activeButton)}
                         key={`${destinationKey}-planet`}
                         onClick={(e) =>
                             setClickPosition(e, destinationGalleryRef, i)
@@ -122,13 +78,6 @@ const Carousel = ({ currentIndex, setCurrentIndex }: CarouselProps) => {
                         {destinationKey}
                     </button>
                 ))}
-                <span
-                    className={styles.menuUnderline}
-                    style={{
-                        width: underlinePosition.width,
-                        left: underlinePosition.offsetLeft,
-                    }}
-                />
             </div>
         </>
     );
