@@ -1,5 +1,4 @@
 import PageTemplate from '@templates/page.template';
-import { useState } from 'react';
 
 import * as styles from './technologyPage.module.css';
 import * as sharedStyles from '@styles/sharedStyles.module.css';
@@ -7,6 +6,7 @@ import clsx from 'clsx';
 import useCarousel from '@hooks/useCarousel';
 import useWindowSize from '@hooks/useWindowSize';
 import { BREAKPOINTS } from '@constants/constants';
+import { useRef } from 'react';
 
 interface TechnologyPageProps {
     technologyData: Array<ITechnologyData>;
@@ -14,13 +14,15 @@ interface TechnologyPageProps {
 
 const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
     const windowWidth = useWindowSize();
+    const carouselGalleryRef = useRef(null);
+
     const {
         position,
         currentData,
-        carouselGalleryRef,
-        onScroll,
         onClickMenuButton,
-    } = useCarousel({ data: technologyData, hasVerticalScroll: true });
+    } = useCarousel({ carouselGalleryRef, data: technologyData, hasVerticalScroll: true });
+
+
 
     return (
         <PageTemplate
@@ -35,12 +37,13 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                             sharedStyles.carouselGallery,
                             styles.technologyGallery
                         )}
-                        onScroll={(e) => onScroll(e)}
+                        role='list'
                         ref={carouselGalleryRef}
                     >
                         {technologyData.map(({ images, name }) => (
                             <img
-                                key={`${name} landscape`}
+                                role='listitem'
+                                key={`${name}-technology-image`}
                                 src={
                                     images[
                                         windowWidth > BREAKPOINTS.desktop
@@ -55,6 +58,7 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                 <menu className={styles.menuControls}>
                     {technologyData.map((_, index) => (
                         <button
+                            key={`${index}-technology-button`}
                             onClick={() =>
                                 onClickMenuButton(carouselGalleryRef, index)
                             }

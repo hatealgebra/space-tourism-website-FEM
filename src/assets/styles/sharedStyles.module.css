@@ -47,8 +47,9 @@
 }
 
 .carouselGallery {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    grid-template-rows: auto;
     margin: 2rem auto 2.6rem;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
@@ -61,8 +62,9 @@
     }
 
     & img {
-        width: inherit;
-        scroll-snap-align: center;
+        display: flex;
+        width: 100%;
+        scroll-snap-align: start;
     }
 }
 

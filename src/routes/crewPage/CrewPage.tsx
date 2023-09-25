@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import * as styles from './crewPage.module.css';
 import * as sharedStyles from '@styles/sharedStyles.module.css';
 import useCarousel from '@hooks/useCarousel';
+import { useEffect, useRef } from 'react';
 
 type TImages = { png: string; webp: string };
 
@@ -16,15 +17,27 @@ interface CrewPageProps {
 }
 
 const CrewPage = ({ crewData }: CrewPageProps) => {
+    const carouselGalleryRef = useRef(null)
+
+
     const {
         position,
         currentData,
-        carouselGalleryRef,
-        onScroll,
         onClickMenuButton,
     } = useCarousel({
+        carouselGalleryRef,
         data: crewData,
-    });
+    })
+
+    useEffect(() => {
+
+        document.addEventListener('', () => {
+            console.log('DOM fully loaded and parsed');
+            if(!carouselGalleryRef.current) return;
+            const chosenElement = carouselGalleryRef.current.children[position];
+            chosenElement.scrollIntoView({ behavior: 'smooth' });
+        })
+    },[])
 
     return (
         <PageTemplate
@@ -35,7 +48,6 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
             <div className={styles.contentContainer}>
                 <div className={styles.crewCarousel}>
                     <div
-                        onScroll={(e) => onScroll(e)}
                         ref={carouselGalleryRef}
                         className={clsx(
                             sharedStyles.carouselGallery,
@@ -55,9 +67,10 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
                     {crewData.map((member, index) => (
                         <button
                             key={`${member.name}-dot`}
-                            onClick={() =>
-                                onClickMenuButton(carouselGalleryRef, index)
-                            }
+                            onClick={(e) =>{
+                                e.preventDefault();
+                                onClickMenuButton(index);
+                            }}
                             className={clsx(
                                 index === position && styles.active,
                                 index > 1 && styles.square
