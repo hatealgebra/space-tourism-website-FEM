@@ -13,26 +13,28 @@ interface TechnologyPageProps {
 }
 
 const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
-    const [gridDirection, setGridDirection] = useState({gridTemplateColumns: `repeat(${technologyData.length}, 100%)`});
+    const [gridDirection, setGridDirection] = useState({
+        gridTemplateColumns: `repeat(${technologyData.length}, 100%)`,
+    });
     const windowWidth = useWindowSize();
     const carouselGalleryRef = useRef(null);
 
-    const {
-        position,
-        currentData,
-        onClickMenuButton,
-        onScroll
-    } = useCarousel({ carouselGalleryRef, data: technologyData, hasVerticalScroll: true });
+    const { position, currentData, onClickMenuButton, onScroll } = useCarousel({
+        carouselGalleryRef,
+        data: technologyData,
+        hasVerticalScroll: true,
+    });
 
     useEffect(() => {
-        if(windowWidth > BREAKPOINTS.desktop) {
-          return  setGridDirection({gridTemplateRows: `repeat(${technologyData.length}, 100%)`});
-
+        if (windowWidth > BREAKPOINTS.desktop) {
+            return setGridDirection({
+                gridTemplateRows: `repeat(${technologyData.length}, 100%)`,
+            });
         }
-        return setGridDirection({gridTemplateColumns: `repeat(${technologyData.length}, 100%)`});
-    }, [windowWidth])
-    
-
+        return setGridDirection({
+            gridTemplateColumns: `repeat(${technologyData.length}, 100%)`,
+        });
+    }, [windowWidth]);
 
     return (
         <PageTemplate
@@ -43,37 +45,42 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
             <div className={styles.contentContainer}>
                 <div className={styles.technologyCarousel}>
                     <div
-                    onScroll={(e) => onScroll(e, windowWidth > BREAKPOINTS.desktop)}
-                            className={clsx(
+                        onScroll={(e) =>
+                            onScroll(e, windowWidth > BREAKPOINTS.desktop)
+                        }
+                        className={clsx(
                             sharedStyles.carouselGallery,
                             styles.technologyGallery
                         )}
-                        role='list'
+                        role="list"
                         ref={carouselGalleryRef}
                         style={gridDirection}
                     >
-                        {technologyData.map(({ images, name }) => (
-                            <img
-                                role='listitem'
-                                key={`${name}-technology-image`}
-                                src={
-                                    images[
-                                        windowWidth > BREAKPOINTS.desktop
-                                            ? 'portrait'
-                                            : 'landscape'
-                                    ]
-                                }
-                            />
-                        ))}
+                        {technologyData.map(({ images, name }) => {
+                            const orientation =
+                                windowWidth > BREAKPOINTS.desktop
+                                    ? 'portrait'
+                                    : 'landscape';
+                            const imageUrl = new URL(
+                                images[orientation],
+                                import.meta.url
+                            );
+
+                            return (
+                                <img
+                                    role="listitem"
+                                    key={`${name}-technology-image`}
+                                    src={imageUrl.toString()}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
                 <menu className={styles.menuControls}>
                     {technologyData.map((_, index) => (
                         <button
                             key={`${index}-technology-button`}
-                            onClick={() =>
-                                onClickMenuButton(index)
-                            }
+                            onClick={() => onClickMenuButton(index)}
                             className={clsx(
                                 index === position && styles.active
                             )}
