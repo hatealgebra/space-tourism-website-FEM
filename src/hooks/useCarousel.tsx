@@ -19,17 +19,25 @@ const useCarousel = ({ carouselGalleryRef,data }: UseCarouselProps) => {
         chosenElement.scrollIntoView({ behavior: 'smooth' });
     }
 
-    const onScroll = (e: UIEvent<HTMLDivElement, UIEvent>) => {
+    const onScroll = (e: UIEvent<HTMLDivElement, UIEvent>, isVertical?: boolean) => {
+
         if(isThrottle) return 
         setIsThrottle(true);
 
         const galleryElement = e.currentTarget;
+        const scrollDirection = isVertical ? 'scrollTop' : 'scrollLeft';
 
         const elementWidth = galleryElement.scrollWidth / galleryElement.childElementCount;
-        const position = Math.floor(galleryElement.scrollLeft / elementWidth);
-        
-        setPosition(position);
-        setCurrentData(data[position]);
+        const position = Math.round(galleryElement[scrollDirection] / elementWidth);
+
+        if(!isVertical) {
+            setPosition(position);
+            setCurrentData(data[position]);
+        } else {
+            const verticalPos = Math.round(position / 3);
+            setPosition(verticalPos);
+            setCurrentData(data[verticalPos]);
+        }        
 
         setTimeout(() => {
             setIsThrottle(false);

@@ -13,7 +13,7 @@ interface TechnologyPageProps {
 }
 
 const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
-    const [gridDirection, setGridDirection] = useState({});
+    const [gridDirection, setGridDirection] = useState({gridTemplateColumns: `repeat(${technologyData.length}, 100%)`});
     const windowWidth = useWindowSize();
     const carouselGalleryRef = useRef(null);
 
@@ -21,10 +21,10 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
         position,
         currentData,
         onClickMenuButton,
+        onScroll
     } = useCarousel({ carouselGalleryRef, data: technologyData, hasVerticalScroll: true });
 
     useEffect(() => {
-        
         if(windowWidth > BREAKPOINTS.desktop) {
           return  setGridDirection({gridTemplateRows: `repeat(${technologyData.length}, 100%)`});
 
@@ -43,7 +43,8 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
             <div className={styles.contentContainer}>
                 <div className={styles.technologyCarousel}>
                     <div
-                        className={clsx(
+                    onScroll={(e) => onScroll(e, windowWidth > BREAKPOINTS.desktop)}
+                            className={clsx(
                             sharedStyles.carouselGallery,
                             styles.technologyGallery
                         )}
