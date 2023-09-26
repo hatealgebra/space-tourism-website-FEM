@@ -48,13 +48,13 @@
     aspect-ratio: 2.2;
 
     & img {
+        scroll-snap-type: center;
         width: 100%;
     }
 
     @media (--min-desktop) {
         aspect-ratio: 0.9;
         max-height: 60vh;
-        flex-direction: column;
         max-width: 100%;
         overflow-x: unset;
         overflow-y: scroll;

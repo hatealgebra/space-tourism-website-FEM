@@ -6,13 +6,14 @@ import clsx from 'clsx';
 import useCarousel from '@hooks/useCarousel';
 import useWindowSize from '@hooks/useWindowSize';
 import { BREAKPOINTS } from '@constants/constants';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface TechnologyPageProps {
     technologyData: Array<ITechnologyData>;
 }
 
 const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
+    const [gridDirection, setGridDirection] = useState({});
     const windowWidth = useWindowSize();
     const carouselGalleryRef = useRef(null);
 
@@ -21,6 +22,16 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
         currentData,
         onClickMenuButton,
     } = useCarousel({ carouselGalleryRef, data: technologyData, hasVerticalScroll: true });
+
+    useEffect(() => {
+        
+        if(windowWidth > BREAKPOINTS.desktop) {
+          return  setGridDirection({gridTemplateRows: `repeat(${technologyData.length}, 100%)`});
+
+        }
+        return setGridDirection({gridTemplateColumns: `repeat(${technologyData.length}, 100%)`});
+    }, [windowWidth])
+    
 
 
     return (
@@ -38,7 +49,7 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                         )}
                         role='list'
                         ref={carouselGalleryRef}
-                        style={{gridTemplateColumns: `repeat(${technologyData.length}, 100%)`}}
+                        style={gridDirection}
                     >
                         {technologyData.map(({ images, name }) => (
                             <img

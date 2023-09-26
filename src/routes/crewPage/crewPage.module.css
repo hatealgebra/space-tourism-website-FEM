@@ -67,6 +67,7 @@
         display: block;
         width: 100%;
         object-fit: contain;
+        scroll-snap-align: center;
     }
 
     @media (--min-tablet) {

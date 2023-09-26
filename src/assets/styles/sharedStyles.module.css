@@ -63,7 +63,7 @@
     & img {
         display: flex;
         width: 100%;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
     }
 }
 
