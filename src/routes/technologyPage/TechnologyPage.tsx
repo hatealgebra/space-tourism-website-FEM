@@ -8,6 +8,8 @@ import useWindowSize from '@hooks/useWindowSize';
 import { BREAKPOINTS } from '@constants/constants';
 import { useEffect, useRef, useState } from 'react';
 
+import image from '@images/technology/image-launch-vehicle-portrait.jpg';
+
 interface TechnologyPageProps {
     technologyData: Array<ITechnologyData>;
 }
@@ -76,6 +78,11 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                         })}
                     </div>
                 </div>
+                <img
+                    style={{ width: '100%', height: '100%' }}
+                    src={image}
+                    alt=""
+                />
                 <menu className={styles.menuControls}>
                     {technologyData.map((_, index) => (
                         <button
