@@ -1,4 +1,4 @@
-import {  UIEvent, useEffect, useState } from 'react';
+import {  UIEvent, useState } from 'react';
 
 interface UseCarouselProps {
     data: Array<ICrewData> | Array<ITechnologyData>;
