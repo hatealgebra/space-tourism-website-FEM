@@ -27,6 +27,7 @@ const useCarousel = ({ carouselGalleryRef,data }: UseCarouselProps) => {
 
         const elementWidth = galleryElement.scrollWidth / galleryElement.childElementCount;
         const position = Math.floor(galleryElement.scrollLeft / elementWidth);
+        
         setPosition(position);
         setCurrentData(data[position]);
 
@@ -34,9 +35,6 @@ const useCarousel = ({ carouselGalleryRef,data }: UseCarouselProps) => {
             setIsThrottle(false);
         }, 50);
     }
-
-
-
 
     return {
         position,

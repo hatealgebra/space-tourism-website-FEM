@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import * as styles from './crewPage.module.css';
 import * as sharedStyles from '@styles/sharedStyles.module.css';
 import useCarousel from '@hooks/useCarousel';
-import { useEffect, useRef } from 'react';
+import {  useRef } from 'react';
 
 type TImages = { png: string; webp: string };
 
