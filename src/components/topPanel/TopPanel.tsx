@@ -1,8 +1,8 @@
 import { Dispatch, Ref, SetStateAction, forwardRef } from 'react';
 import useWindowSize from '@hooks/useWindowSize';
 
-import logo from '@shared/logo.svg';
-import iconHamburger from '@shared/icon-hamburger.svg';
+import logo from '/shared/logo.svg';
+import iconHamburger from '/shared/icon-hamburger.svg';
 import * as styles from './topPanel.module.css';
 import { BREAKPOINTS, ROUTES } from '@constants/constants';
 import { NavLink } from 'react-router-dom';
@@ -24,12 +24,10 @@ const TopPanel = forwardRef(function (
             )}
             {deviceWidth >= BREAKPOINTS.tablet ? (
                 <nav>
-                    <ul >
+                    <ul>
                         {Object.values(ROUTES).map((route, index) => {
                             return (
-                                <li
-                                key={route.name}
-                                >
+                                <li key={route.name}>
                                     <NavLink
                                         className={({ isActive }) =>
                                             isActive && styles.activeLink

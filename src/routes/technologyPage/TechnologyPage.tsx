@@ -78,11 +78,6 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                         })}
                     </div>
                 </div>
-                <img
-                    style={{ width: '100%', height: '100%' }}
-                    src={image}
-                    alt=""
-                />
                 <menu className={styles.menuControls}>
                     {technologyData.map((_, index) => (
                         <button

@@ -1,13 +1,13 @@
 @import '../assets/styles/mediaQueries.css';
 
 .backgroundContainer {
-    background-image: url('../assets/images/home/background-home-mobile.jpg');
+    background-image: url('/images/home/background-home-mobile.jpg');
     @media (--min-tablet) {
-        background-image: url('../assets/images/home/background-home-tablet.jpg');
+        background-image: url('/images/home/background-home-tablet.jpg');
     }
 
     @media (--min-desktop) {
-        background-image: url('../assets/images/home/background-home-desktop.jpg');
+        background-image: url('/images/home/background-home-desktop.jpg');
     }
     height: 100%;
 }
