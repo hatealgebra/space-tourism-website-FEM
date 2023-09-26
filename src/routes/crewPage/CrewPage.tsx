@@ -46,6 +46,7 @@ const CrewPage = ({ crewData }: CrewPageProps) => {
                             sharedStyles.carouselGallery,
                             styles.crewGallery
                         )}
+                        style={{gridTemplateColumns: `repeat(${crewData.length}, 100%)`}}
                     >
                         {crewData.map((member) => (
                             <img

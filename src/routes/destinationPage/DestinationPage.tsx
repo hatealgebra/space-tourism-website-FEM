@@ -8,11 +8,6 @@ import {  useRef } from 'react';
 import useCarousel from '@hooks/useCarousel';
 import clsx from 'clsx';
 
-import imageEuropa from '@images/destination/image-europa.webp';
-import imageMars from '@images/destination/image-mars.webp';
-import imageMoon from '@images/destination/image-moon.webp';
-import imageTitan from '@images/destination/image-titan.webp';
-
 enum EDESTINATIONS {
     MOON = 'MOON',
     MARS = 'MARS',
@@ -39,7 +34,6 @@ const DestinationPage = ({ destinationsData }: DestinationPageProps) => {
         data: destinationsData,
     })
 
-
     return (
         <PageTemplate
             styles={styles}
@@ -54,11 +48,17 @@ const DestinationPage = ({ destinationsData }: DestinationPageProps) => {
                     sharedStyles.carouselGallery,
                     styles.planetsGallery
                 )}
+                style={{gridTemplateColumns: `repeat(${destinationsData.length}, 100%)`}}
             >
-                <img src={imageMoon} alt="Image of Moon" />
-                <img src={imageMars} alt="Image of Mars" />
-                <img src={imageEuropa} alt="Image of Europa" />
-                <img src={imageTitan} alt="Image of Titan" />
+                {destinationsData.map(({ images, name }) => {
+                    return (
+                        <img
+                            key={`${name}-planet-image`}
+                            src={images.webp}
+                            alt={`Image of ${name}`}
+                        />
+                    );
+                })}
             </div>
             <div className={styles.chooseMenu}>
                 {Object.keys(EDESTINATIONS).map((destinationKey, i) => (

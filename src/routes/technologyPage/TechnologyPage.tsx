@@ -23,7 +23,6 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
     } = useCarousel({ carouselGalleryRef, data: technologyData, hasVerticalScroll: true });
 
 
-
     return (
         <PageTemplate
             styles={styles}
@@ -39,6 +38,7 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                         )}
                         role='list'
                         ref={carouselGalleryRef}
+                        style={{gridTemplateColumns: `repeat(${technologyData.length}, 100%)`}}
                     >
                         {technologyData.map(({ images, name }) => (
                             <img
@@ -60,7 +60,7 @@ const TechnologyPage = ({ technologyData }: TechnologyPageProps) => {
                         <button
                             key={`${index}-technology-button`}
                             onClick={() =>
-                                onClickMenuButton(carouselGalleryRef, index)
+                                onClickMenuButton(index)
                             }
                             className={clsx(
                                 index === position && styles.active
