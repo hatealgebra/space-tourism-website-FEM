@@ -4,6 +4,11 @@ import DestinationsCarousel from '@components/carousels/destinationsCarousel/Des
 import styles from '@components/carousels/destinationsCarousel/destinationsCarousel.module.css';
 ---
 
-<PageLayout title="Destinations to explore" styles={styles}>
+<PageLayout
+    styles={styles}
+    title="Destinations to explore"
+    headingNumber="01"
+    headingText="Pick your destination"
+>
     <DestinationsCarousel client:load />
 </PageLayout>

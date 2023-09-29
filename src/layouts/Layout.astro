@@ -6,9 +6,11 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
     title: string;
     styles: typeof import('*.module.css');
+    headingNumber?: string;
+    headingText?: string;
 }
 
-const { title, styles } = Astro.props;
+const { title, styles, headingNumber, headingText } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const { title, styles } = Astro.props;
         <title>{title}</title>
     </head>
     <body>
-        <PageTemplate styles={styles} client:only="react">
+        <PageTemplate styles={styles} headingNumber={headingNumber} headingText={headingText} client:only="react">
             <div class={styles.contentContainer}>
                 <slot />
             </div>
