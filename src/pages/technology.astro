@@ -1,0 +1,9 @@
+---
+import PageLayout from '../layouts/Layout.astro';
+import TechnologyCarousel from '@components/carousels/technologyCarousel/TechnologyCarousel';
+import styles from '@components/carousels/technologyCarousel/technologyCarousel.module.css';
+---
+
+<PageLayout title="Destinations to explore" styles={styles}>
+    <TechnologyCarousel client:only />
+</PageLayout>

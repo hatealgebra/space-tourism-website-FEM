@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Barlow Condensed'; /* Specify the desired font-family name */
+    src: url('../../fonts/BarlowCondensed-Regular.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Barlow; /* Specify the desired font-family name */
+    src: url('../../fonts/Barlow-Regular.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+}
+
+@font-face {
+    font-family: Bellefair; /* Specify the desired font-family name */
+    src: url('../../fonts/Bellefair-Regular.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+}

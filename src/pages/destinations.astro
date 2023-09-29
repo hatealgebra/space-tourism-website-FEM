@@ -1,0 +1,9 @@
+---
+import PageLayout from '../layouts/Layout.astro';
+import DestinationsCarousel from '@components/carousels/destinationsCarousel/DestinationsCarousel';
+import styles from '@components/carousels/destinationsCarousel/destinationsCarousel.module.css';
+---
+
+<PageLayout title="Destinations to explore" styles={styles}>
+    <DestinationsCarousel client:load />
+</PageLayout>

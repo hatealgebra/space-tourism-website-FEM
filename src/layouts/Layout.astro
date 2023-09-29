@@ -1,0 +1,30 @@
+---
+import 'global.css';
+import PageTemplate from '@templates/page.template';
+
+interface Props {
+    title: string;
+    styles: typeof import('*.module.css');
+}
+
+const { title, styles } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <PageTemplate styles={styles} client:only="react">
+            <div class={styles.contentContainer}>
+                <slot />
+            </div>
+        </PageTemplate>
+    </body>
+</html>

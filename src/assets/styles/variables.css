@@ -1,0 +1,8 @@
+/* colors */
+:root {
+    --color-dark: rgb(11 13 23 / 100%);
+    --color-levant: rgb(208 214 249 / 100%);
+    --color-white: rgb(255 255 255 / 100%);
+    --color-white-hover: rgb(255 255 255 /10.367%);
+    --color-border: rgba(56, 59, 75, 1);
+}

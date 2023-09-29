@@ -1,0 +1,26 @@
+---
+import { ROUTES } from '@constants/constants';
+import * as styles from './root.module.css';
+import * as sharedStyles from '@styles/sharedStyles.module.css';
+import PageLayout from '../layouts/Layout.astro';
+---
+
+<PageLayout title="Home" styles={styles}>
+    <div class={styles.contentContainer}>
+        <div class={styles.textContent}>
+            <span class={sharedStyles.subThree}>
+                SO, YOU WANT TO TRAVEL TO
+            </span>
+            <h1>Space</h1>
+            <p>
+                Let’s face it; if you want to go to space, you might as well
+                genuinely go to outer space and not hover kind of on the edge of
+                it. Well sit back, and relax because we’ll give you a truly out
+                of this world experience!
+            </p>
+        </div>
+        <div class={styles.lpBtn}>
+            <a href="/destinations">EXPLORE</a>
+        </div>
+    </div>
+</PageLayout>

@@ -1,0 +1,141 @@
+@import '../../../assets/styles/mediaQueries.css';
+
+.backgroundContainer {
+    background-image: url(/images/technology/background-technology-mobile.jpg);
+
+    @media (--min-tablet) {
+        background-image: url(/images/technology/background-technology-tablet.jpg);
+    }
+
+    @media (--min-desktop) {
+        background-image: url(/images/technology/background-technology-desktop.jpg);
+    }
+    min-height: 100vh;
+}
+
+.contentContainer {
+    height: 100%;
+    width: 100%;
+
+    @media (--min-desktop) {
+        * {
+            text-align: left;
+        }
+
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 80px;
+        width: 110%;
+        max-width: 1400px;
+    }
+}
+
+.technologyCarousel {
+    position: relative;
+    right: 5%;
+    width: 110%;
+
+    @media (--min-desktop) {
+        order: 3;
+        right: 0;
+        width: fit-content;
+    }
+}
+
+.technologyGallery {
+    max-width: 768px;
+    aspect-ratio: 2.2;
+
+    & img {
+        scroll-snap-type: center;
+        width: 100%;
+    }
+
+    @media (--min-desktop) {
+        aspect-ratio: 0.9;
+        max-height: 60vh;
+        max-width: 100%;
+        overflow-x: unset;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        max-width: 515px;
+
+        & img {
+            aspect-ratio: 0.9;
+        }
+    }
+}
+
+.menuControls {
+    margin: auto;
+    width: max-content;
+    display: flex;
+    gap: 16px;
+
+    & button {
+        font-family: Bellefair;
+        width: 40px;
+        color: var(--color-white);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background-color: transparent;
+        transition: 0.3 all ease-in-out;
+        text-align: center;
+    }
+
+    & button.active {
+        background-color: var(--color-white);
+        color: var(--color-dark);
+    }
+
+    & button:hover {
+        border-color: var(--color-white);
+    }
+
+    @media (--min-tablet) {
+        & button {
+            width: 60px;
+        }
+    }
+
+    @media (--min-desktop) {
+        order: 1;
+        flex-direction: column;
+        height: fit-content;
+        gap: 30px;
+        margin: 0;
+
+        & button {
+            width: 80px;
+            font-size: 3.2rem;
+        }
+    }
+}
+
+.textContent {
+    text-align: center;
+    max-width: 458px;
+    margin: 0 auto;
+
+    & span {
+        margin-top: 2.6rem;
+    }
+    & h3 {
+        margin-top: 1rem;
+    }
+    & p {
+        margin-top: 1.3rem;
+    }
+
+    @media (--min-desktop) {
+        order: 2;
+        max-width: 470px;
+        margin: 0;
+
+        & > span {
+            margin-top: 0;
+        }
+    }
+}

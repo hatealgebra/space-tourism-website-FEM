@@ -1,0 +1,123 @@
+@import '../assets/styles/mediaQueries.css';
+
+.backgroundContainer {
+    background-image: url('/images/home/background-home-mobile.jpg');
+    @media (--min-tablet) {
+        background-image: url('/images/home/background-home-tablet.jpg');
+    }
+
+    @media (--min-desktop) {
+        background-image: url('/images/home/background-home-desktop.jpg');
+    }
+    height: 100%;
+    background-size: cover;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    @media (--min-desktop) {
+        flex-direction: row;
+        align-items: flex-end;
+        align-self: flex-end;
+
+        width: 100%;
+    }
+}
+
+.textContent {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+
+    @media (--min-desktop) {
+        margin: 0 0 0 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    & h1 {
+        margin: 1.6rem 0;
+
+        @media (--min-tablet) {
+            margin: 2.4rem 0;
+        }
+    }
+
+    & p {
+        max-width: 445px;
+    }
+}
+
+.lpBtn {
+    height: max-content;
+    transition: 0.4s ease-in;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+    height: 150px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & a,
+    & div {
+        background-color: var(--color-white);
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    & a {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--color-white);
+        opacity: 1 !important;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+        height: inherit;
+        color: var(--color-dark);
+        font-family: Bellefair;
+        letter-spacing: 1.25px;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+
+    & div {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: 0.3s ease-in;
+    }
+
+    &:hover div {
+        opacity: 0.1036;
+    }
+
+    @media (--min-tablet) {
+        height: 342px;
+
+        & a {
+            height: 242px;
+        }
+    }
+
+    @media (--min-desktop) {
+        height: 450px;
+        width: 450px;
+        margin: unset;
+        position: relative;
+        left: 5%;
+
+        & a {
+            height: 274px;
+            width: 274px;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@import '../../assets/styles/mediaQueries.css';
+@font-face {
+    font-family: 'Barlow Condensed'; /* Specify the desired font-family name */
+    src: url('/fonts/BarlowCondensed-Bold.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+    font-weight: bold;
+}
+
+.root {
+    display: flex;
+    padding: 2.4rem;
+    justify-content: space-between;
+    top: 0;
+    align-items: center;
+    position: relative;
+    margin-bottom: 4rem;
+
+
+    @media (--min-tablet) {
+        padding: unset;
+
+        & > * {
+            flex: 1;
+        }
+    }
+
+    @media (--min-desktop) {
+        padding: 4.4rem 0 7.7rem 0;
+        align-items: center;
+    }
+
+    & nav {
+        max-width: 60%;
+        min-width: fit-content;
+        position: relative;
+
+        @media (--min-desktop) {
+            margin: unset;
+        }
+
+        & ul {
+            padding: 0 4rem;
+            height: 96px;
+            list-style-type: none;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(40.774227142333984px);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+
+            @media (--min-desktop) {
+                padding: 0 16.7rem 0 12.3rem;
+                gap: 5rem;
+            }
+        }
+
+        & a {
+            padding: 4rem 0;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2.7px;
+            position: relative;
+
+            & span:nth-of-type(2) {
+                margin-left: 1.1rem;
+            }
+        }
+        @media (--min-desktop) {
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: calc(51% - 1px);
+                z-index: 2;
+                width: 5%;
+                height: 1px;
+                background-color: var(--color-border);
+            }
+        }
+    }
+}
+
+.activeLink {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: white;
+    }
+}
+
+.logo {
+    height: 40px;
+    max-width: 40px;
+    aspect-ratio: 1;
+
+    @media (--min-tablet) {
+        margin: 4rem 0 0 4rem;
+        height: 48px;
+        max-width: 48px;
+    }
+
+    @media (--min-desktop) {
+        margin: unset;
+        margin-left: 5.5rem;
+    }
+}
+
+.hamburgerBtn {
+    width: 24px;
+    height: 21px;
+    border: none;
+    background-color: transparent;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.topPanelLine {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+    margin-left: 5%;
+}
