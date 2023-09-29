@@ -53,7 +53,6 @@
 }
 
 .crewGallery {
-    max-width: 180px;
     width: 100%;
     margin: 0 auto;
     overflow-x: scroll;
@@ -62,16 +61,23 @@
     scroll-behavior: smooth;
     aspect-ratio: 1;
 
+    &,
     & img {
         aspect-ratio: 1;
+        max-width: 200px;
+    }
+
+    & img {
         display: block;
-        width: 200px;
         object-fit: contain;
         scroll-snap-align: center;
     }
 
     @media (--min-tablet) {
-        max-width: 450px;
+        &,
+        & img {
+            max-width: 450px;
+        }
     }
 
     @media (--min-desktop) {
