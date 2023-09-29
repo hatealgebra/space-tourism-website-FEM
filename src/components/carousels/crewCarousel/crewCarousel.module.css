@@ -30,7 +30,7 @@
     @media (--min-desktop) {
         position: absolute;
         display: grid;
-        grid-template-columns: 4.5fr 1fr;
+        grid-template-columns: 2.5fr 1fr;
         grid-template-rows: 3fr 1fr;
         margin: 0;
         gap: 0;
@@ -65,7 +65,7 @@
     & img {
         aspect-ratio: 1;
         display: block;
-        width: 100%;
+        width: 200px;
         object-fit: contain;
         scroll-snap-align: center;
     }
@@ -79,6 +79,11 @@
         display: flex;
         height: 100%;
         align-items: flex-end;
+
+        &,
+        & img {
+            max-width: 712px;
+        }
 
         & img {
             height: 100%;
