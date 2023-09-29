@@ -1,7 +1,7 @@
 @import '../../assets/styles/mediaQueries.css';
 @font-face {
     font-family: 'Barlow Condensed'; /* Specify the desired font-family name */
-    src: url('../../assets/fonts/BarlowCondensed-Bold.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+    src: url('/fonts/BarlowCondensed-Bold.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
     font-weight: bold;
 }
 
