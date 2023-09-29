@@ -46,11 +46,10 @@ Users should be able to:
 ### Built with
 
 -   Semantic HTML5 markup
--   [Vite](https://vite.com) for bundling
+-   [Astro](https://astro.build) - Astro for bundling and SSG
 -   [LightningCSS](https://lightningcss) + CSS modules for styling
 -   [React](https://reactjs.org/) - JS library
 -   [Typescript](https://typescript.org) - Typing for JS and more
--   [React Router](https://reactrouter.com/en/main/components/link) for routing to the components
 -   ESLint & Stylelint for linting
 
 ## Author
