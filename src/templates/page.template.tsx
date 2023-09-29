@@ -26,15 +26,14 @@ const PageTemplate = ({
         const targetElement = e.target;
         const mobileMenu = mobileMenuRef?.current;
         const hamburgerBtn = hamburgerBtnRef?.current;
-        e.preventDefault();
-
+        
         if (mobileMenu === null) return;
         if (hamburgerBtn === null) return;
-
+        
         if (
             !mobileMenu.contains(targetElement) &&
             !hamburgerBtn.contains(targetElement)
-        ) {
+            ) {
             setIsMobileMenuActive(false);
         }
     };
