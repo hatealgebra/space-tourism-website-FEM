@@ -5,7 +5,6 @@ import * as styles from './mobileMenu.module.css';
 import * as sharedStyles from '@styles/sharedStyles.module.css';
 import { ROUTES } from '@constants/constants';
 
-
 interface MobileMenuProps {
     isMobileMenuActive?: boolean;
     setIsMobileMenuActive: Dispatch<SetStateAction<boolean>>;

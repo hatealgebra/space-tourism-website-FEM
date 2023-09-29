@@ -1,7 +1,7 @@
 @import '../../assets/styles/mediaQueries.css';
 @font-face {
     font-family: 'Barlow Condensed'; /* Specify the desired font-family name */
-    src: url('/fonts/BarlowCondensed-Bold.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
+    src: url('../../assets/fonts/BarlowCondensed-Bold.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with your font file name and path */
     font-weight: bold;
 }
 
@@ -10,10 +10,8 @@
     padding: 2.4rem;
     justify-content: space-between;
     top: 0;
-    align-items: center;
+    position: sticky;
     position: relative;
-    margin-bottom: 4rem;
-
 
     @media (--min-tablet) {
         padding: unset;
@@ -31,6 +29,7 @@
     & nav {
         max-width: 60%;
         min-width: fit-content;
+        margin-bottom: 4rem;
         position: relative;
 
         @media (--min-desktop) {
